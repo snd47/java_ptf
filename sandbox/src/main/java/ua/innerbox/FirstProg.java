@@ -6,12 +6,20 @@ public class FirstProg {
         hello("world");
         hello("user");
         hello("Oleksandr");
-        double b = 3;
-        System.out.println("Площадь квадрата, co стороной " + b+ " равна: " + area(b) );
 
-        double a1 = 4;
-        double a2 = 6;
-        System.out.println("Площадь прямоугольника, co стороной " + a1 + " и " + a2 + " равна: " + area(a1,a2));
+        Square s = new Square();
+        s.l = 5;
+
+//        double b = 3;
+        System.out.println("Площадь квадрата, co стороной " + s.l + " равна: " + area(s) );
+
+        Rectangle r = new Rectangle();
+        r.a = 7;
+        r.b = 9;
+
+//        double a1 = 4;
+//        double a2 = 6;
+        System.out.println("Площадь прямоугольника, co стороной " + r.a + " и " + r.b + " равна: " + area(r));
     }
 
     public static void hello(String something) {
@@ -19,11 +27,11 @@ public class FirstProg {
         System.out.println("Hello, " + something + "!");
     }
 
-    public static double area(double b) {
-        return b*b;
+    public static double area(Square obj) {
+        return obj.l*obj.l;
     }
 
-    public static double area(double a, double b) {
-        return a*b;
+    public static double area(Rectangle obj) {
+        return obj.a*obj.b;
     }
 }
