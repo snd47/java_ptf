@@ -7,23 +7,21 @@ public class FirstProg {
         hello("user");
         hello("Oleksandr");
 
-        Square s = new Square();
-        s.l = 5;
+        Square s = new Square(5);
+//        s.l = 5;
 
-//        double b = 3;
+
         System.out.println("Площадь квадрата, co стороной " + s.l + " равна: " + area(s) );
 
-        Rectangle r = new Rectangle();
-        r.a = 7;
-        r.b = 9;
+        Rectangle r = new Rectangle(7,9);
+//        r.a = 7;
+//        r.b = 9;
 
-//        double a1 = 4;
-//        double a2 = 6;
         System.out.println("Площадь прямоугольника, co стороной " + r.a + " и " + r.b + " равна: " + area(r));
     }
 
     public static void hello(String something) {
-//        String something = "world";
+
         System.out.println("Hello, " + something + "!");
     }
 
