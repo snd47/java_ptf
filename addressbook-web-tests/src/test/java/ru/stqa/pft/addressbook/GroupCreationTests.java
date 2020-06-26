@@ -66,7 +66,7 @@ public class GroupCreationTests {
 
     private void gotoGroupPage() {
         wd.findElement(By.linkText("groups")).click();
-        System.out.println("gotoGroupPage executed");
+//        System.out.println("gotoGroupPage executed");
     }
 
     @AfterMethod(alwaysRun = true)
