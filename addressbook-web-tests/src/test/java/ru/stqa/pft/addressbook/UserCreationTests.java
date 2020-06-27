@@ -32,7 +32,9 @@ public class UserCreationTests {
     public void testUserCreation() throws Exception {
 
         initUserCreation();
-        fillUserForm(new GroupUser("Bob", "Bo", "Boston", "Bo1", "title", "Boston Science", "Green street, 11", "+18579134015", "+18573334455", "+18571122334", "bobmail@com.us", "email2", "brb@com.us", "none"));
+        fillUserForm(new GroupUser("Bob", "Bo", "Boston", "Bo1", "title",
+                "Boston Science", "Green street, 11", "+18579134015", "+18573334455",
+                "+18571122334", "bobmail@com.us", "email2", "brb@com.us", "none"), new GroupUserDropdown("4", "February", "1988", "6", "January", "test1"));
         submitUserCreation();
 
     }
@@ -41,7 +43,7 @@ public class UserCreationTests {
         wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
 
-    private void fillUserForm(GroupUser groupUser) {
+    private void fillUserForm(GroupUser groupUser, GroupUserDropdown groupUserDropdown) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(groupUser.getFirstname());
@@ -85,25 +87,25 @@ public class UserCreationTests {
         wd.findElement(By.name("homepage")).clear();
         wd.findElement(By.name("homepage")).sendKeys(groupUser.getHomepage());
         wd.findElement(By.name("bday")).click();
-        new Select(wd.findElement(By.name("bday"))).selectByVisibleText("4");
+        new Select(wd.findElement(By.name("bday"))).selectByVisibleText(groupUserDropdown.getBday());
         wd.findElement(By.xpath("//option[@value='4']")).click();
         wd.findElement(By.name("bmonth")).click();
-        new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("February");
+        new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(groupUserDropdown.getBmonth());
         wd.findElement(By.xpath("//option[@value='February']")).click();
         wd.findElement(By.name("byear")).click();
         wd.findElement(By.name("byear")).clear();
-        wd.findElement(By.name("byear")).sendKeys("1988");
+        wd.findElement(By.name("byear")).sendKeys(groupUserDropdown.getByear());
         wd.findElement(By.name("aday")).click();
-        new Select(wd.findElement(By.name("aday"))).selectByVisibleText("6");
+        new Select(wd.findElement(By.name("aday"))).selectByVisibleText(groupUserDropdown.getAday());
         wd.findElement(By.xpath("(//option[@value='6'])[2]")).click();
         wd.findElement(By.name("amonth")).click();
-        new Select(wd.findElement(By.name("amonth"))).selectByVisibleText("January");
+        new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(groupUserDropdown.getAmonth());
         wd.findElement(By.xpath("(//option[@value='January'])[2]")).click();
         wd.findElement(By.name("ayear")).click();
         wd.findElement(By.name("ayear")).clear();
         wd.findElement(By.name("ayear")).sendKeys("1999");
         wd.findElement(By.name("new_group")).click();
-        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("test1");
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(groupUserDropdown.getNew_group());
         wd.findElement(By.xpath("(//option[@value='1'])[3]")).click();
         wd.findElement(By.name("address2")).click();
         wd.findElement(By.name("address2")).clear();
